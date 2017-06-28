@@ -15,7 +15,7 @@ RUN         apk add --update git build-base; \
             rm -rf /wide/i18n/*.go
 
 FROM        golang:1.8.3-alpine3.6
-RUN         apk --no-cache add ca-certificates; \
+RUN         apk --no-cache add ca-certificates git; \
             mkdir -p /wide; \
             go get -u -v github.com/visualfc/gotools github.com/nsf/gocode github.com/bradfitz/goimports
 WORKDIR     /wide
