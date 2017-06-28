@@ -22,5 +22,5 @@ COPY        --from=builder /wide/ .
 
 EXPOSE      7070
 
-ENTRYPOINT  ["/wide", "-stat", "false"]
+ENTRYPOINT  ["/wide/wide", "-stat", "false"]
 CMD         ["-docker=true", "-channel=ws://127.0.0.1:7070"]
