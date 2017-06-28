@@ -9,16 +9,15 @@ RUN         apk add --update git build-base; \
             mkdir -p /wide; \
             cd $GOPATH/src/github.com/b3log/wide; \
             go build -ldflags="-s -w" -v -o wide; \
-            cp -aH ./wide /wide/; \
-            cp -aH ./static/ /wide/; \
-            cp -aH ./views/ /wide/; \
+            cp -aH ./wide ./static/ ./conf/ ./doc/ ./i18n/ ./README.md ./TERMS.md ./LICENSE ./.header.json ./.header.txt /wide/; \
             chmod +x /wide/wide; \
-            mkdir -p /wide/conf; \
-            cp -aH ./conf/ /wide
+            rm -rf /wide/conf/*.go; \
+            rm -rf /wide/i18n/*.go
 
 FROM        golang:1.8.3-alpine3.6
 RUN         apk --no-cache add ca-certificates; \
-            mkdir -p /wide
+            mkdir -p /wide; \
+            go get -u -v github.com/visualfc/gotools github.com/nsf/gocode github.com/bradfitz/goimports
 WORKDIR     /wide
 
 COPY        --from=builder /wide/ .
