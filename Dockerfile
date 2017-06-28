@@ -12,7 +12,9 @@ RUN         apk add --update git build-base; \
             cp -aH ./wide /wide/; \
             cp -aH ./static/ /wide/; \
             cp -aH ./views/ /wide/; \
-            chmod +x /wide/wide
+            chmod +x /wide/wide; \
+            mkdir -p /wide/conf; \
+            cp -aH ./conf/ /wide
 
 FROM        alpine:3.6
 RUN         apk --no-cache add ca-certificates; \
