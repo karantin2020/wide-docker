@@ -8,9 +8,7 @@ RUN         apk add --update git build-base; \
             go get -u -v -d github.com/b3log/wide; \
             mkdir -p /wide; \
             cd $GOPATH/src/github.com/b3log/wide; \
-            go build -ldflags="-s -w" -v -o wide; \
-            ./wide -v; \
-            ./wide -h
+            go build -ldflags="-s -w" -v -o wide
 
 FROM        alpine:3.6
 RUN         apk --no-cache add ca-certificates; \
