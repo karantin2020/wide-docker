@@ -9,7 +9,7 @@ RUN         apk add --update git build-base; \
             mkdir -p /wide; \
             cd $GOPATH/src/github.com/b3log/wide; \
             go build -ldflags="-s -w" -v -o wide; \
-            cp -aH ./wide ./static/ ./conf/ ./doc/ ./i18n/ ./README.md ./TERMS.md ./LICENSE ./.header.json ./.header.txt /wide/; \
+            cp -aH ./wide ./static/ ./views/ ./conf/ ./doc/ ./i18n/ ./README.md ./TERMS.md ./LICENSE ./.header.json ./.header.txt /wide/; \
             chmod +x /wide/wide; \
             rm -rf /wide/conf/*.go; \
             rm -rf /wide/i18n/*.go
