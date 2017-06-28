@@ -16,10 +16,11 @@ RUN         apk add --update git build-base; \
             mkdir -p /wide/conf; \
             cp -aH ./conf/ /wide
 
-FROM        alpine:3.6
+FROM        golang:1.8.3-alpine3.6
 RUN         apk --no-cache add ca-certificates; \
             mkdir -p /wide
 WORKDIR     /wide
+
 COPY        --from=builder /wide/ .
 
 EXPOSE      7070
