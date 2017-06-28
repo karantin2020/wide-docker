@@ -11,7 +11,8 @@ RUN         apk add --update git build-base; \
             go build -ldflags="-s -w" -v -o wide; \
             cp -aH ./wide /wide/; \
             cp -aH ./static/ /wide/; \
-            cp -aH ./views/ /wide/
+            cp -aH ./views/ /wide/; \
+            chmod +x /wide/wide
 
 FROM        alpine:3.6
 RUN         apk --no-cache add ca-certificates; \
